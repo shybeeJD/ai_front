@@ -80,6 +80,11 @@
         </a>
       </li>
     </ul>
+
+      <el-progress :percentage="75" type="circle"></el-progress>
+      <el-row type="flex" justify="center">
+      <el-progress :percentage="75" type="circle" :span="6"></el-progress>
+    </el-row>
   </div>
 </template>
 

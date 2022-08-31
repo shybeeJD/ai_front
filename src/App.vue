@@ -1,23 +1,169 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
-  </div>
-</template>
 
+  <div>
+      <!-- 头部区域 -->
+      <div class="header w">
+          <!-- logo部分 -->
+          <div class="logo">
+              <img src="../static/images/logo.jpg">
+          </div>
+          <!-- 导航栏部分 nav -->
+          <div class="nav">
+              <ul>
+                  <li><a href="#1">图像攻防</a></li>
+                  <li><a href="#2">语音攻防</a></li>
+                  <li><a href="#3">可解释性</a></li>
+              </ul>
+          </div>
+      </div>
+      <!-- 头部区域 -->
+      <hr>
+      <!-- 下边页面 -->
+      <div class="w">
+          <div class="page " id="1" style="display: block;">
+              <h1>图像攻防</h1>
+              <div class="box">
+                  <ul class="clearfix">
+                      <li class="box_transition">
+                          过渡
+                      </li>
+                      <li class="box_body">
+                          攻击
+                      </li>
+                      <li class="box_transition">
+                          过渡
+                      </li>
+                      <li class="box_body">
+                          检测
+                      </li>
+                      <li class="box_transition">
+                          过渡
+                      </li>
+                      <li class="box_body">
+                          擦除
+                      </li>
+                      <li class="box_transition">
+                          过渡
+                      </li>
+                      <li class="box_transition">
+                          过渡
+                      </li>
+                      <li class="box_body">
+                          模型增强
+                      </li>
+                      <li class="box_transition">
+                          过渡
+                      </li>
+                      <li class="box_body">
+                          后门
+                      </li>
+                      <li class="box_transition">
+                          过渡
+                      </li>
+                      <li class="box_body">
+                          投毒
+                      </li>
+                      <li class="box_transition">
+                          过渡
+                      </li>
+                  </ul>
+              </div>
+          </div>
+          <div class="page" id="2" style="display: none;">
+              <h1>语音攻防</h1>
+          </div>
+          <div class="page" id="3" style="display: none;">
+              <h1>可解释性</h1>
+          </div>
+      </div>
+  </div>
+  </template>
 <script>
 export default {
-  name: 'App'
+  name: 'AIIndex',
+  data () {
+    return {
+      msg: 'Welcome to Your Vue.js App'
+    }
+  }
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+  <style>
+      * {
+      margin: 0;
+      padding: 0;
+  }
+  .w {
+      width: 1200px;
+      margin: auto;
+  }
+  li {
+      list-style: none;
+  }
+  a {
+      text-decoration: none;
+  }
+  .clearfix:before,.clearfix:after {
+      content:"";
+      display:table;
+    }
+    .clearfix:after {
+      clear:both;
+    }
+    .clearfix {
+       *zoom:1;
+    }
+  .header {
+      height: 42px;
+      margin: 30px auto;
+  }
+  .logo img{
+      float: left;
+      width: 200px;
+      height: auto;
+  }
+  .nav {
+      float: left;
+      margin-left: 230px;
+  }
+  .nav ul li {
+      float: left;
+      margin: 0 15px;
+  }
+  .nav ul li a {
+      display: block;
+      height: 40px;
+      padding: 0 10px;
+      line-height: 40px;
+      font-size: 20px;
+      color: #050505;
+  }
+  .nav ul li a:hover {
+      border-bottom: 2px solid #00a4ff;
+      color: #00a4ff;
+  }
+  .page h1{
+      padding-top: 20px;
+      text-align: center;
+  }
+  .page .box ul {
+      width: 1200px;
+      margin-top: 50px;
+      margin-left: 40px;
+  }
+  .page .box ul li {
+      float: left;
+      width: 150px;
+      height: 200px;
+      margin-right: 5px;
+      margin-left: 5px;
+      margin-bottom: 50px;
+      text-align: center;
+  }
+  .page .box_transition {
+      background: skyblue;
+  }
+  .page .box_body{
+      background-color: red;
+  }
+  </style>
