@@ -48,8 +48,11 @@
           <img class="imgs" :src='main_pic' alt="">
         </div>
         <div class="letter">
-          <a>AI攻防系统</a>
+          <a class="letter">AI攻防系统</a>
         </div>
+        <!-- <div style="font-size: 50px; FILTER: dropshadow(color=#228B22,offX=5,offY=3,Positive=1); WIDTH: 100%; COLOR: #ff7f50; LINE-HEIGHT: 150%; font-family:楷体;">
+          <strong>脉望の书屋</strong>
+        </div> -->
       </el-main>
       <!-- 页尾容器 -->
       <div class="copyright-footer">
@@ -151,10 +154,10 @@ export default {
 }
 .letter {
   color: #FFF;
-  font-size: 80px;
+  font-size: 90px;
   max-height: 50px;
   width: auto;
-  font-family:;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, 楷体;
 }
 .footer{
   display: flex;
