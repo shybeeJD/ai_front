@@ -1,15 +1,17 @@
 <template>
-  <div id="app">
-    <router-view></router-view>
+  <div>
+    <el-button type="circle"></el-button>
+    <el-row>
+      <el-col :span=""></el-col>
+    </el-row>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app',
+  name: '',
   data () {
     return {
-      count: 0
     }
   },
   mounted () {
