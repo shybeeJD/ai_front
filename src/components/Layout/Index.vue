@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="app">
     <!-- 外层容器 -->
     <el-container style="height: 840px; border: 0px solid #000;">
       <!-- 顶栏容器 -->
@@ -15,10 +15,12 @@
       <!-- 页尾容器 -->
       <Footer></Footer>
     </el-container>
+
   </div>
 </template>
 
 <script>
+
 import Header from '@/components/Layout/Header'
 import Footer from '@/components/Layout/Footer'
 
@@ -29,6 +31,5 @@ export default {
   }
 }
 </script>
-
 <style scoped>
 </style>
