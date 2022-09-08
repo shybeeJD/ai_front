@@ -20,13 +20,11 @@
 
 <script>
 import Header from '@/components/Layout/Header'
-import MainCover from '@/components/Layout/MainCover'
 import Footer from '@/components/Layout/Footer'
 
 export default {
   components: {
     Header,
-    MainCover,
     Footer
   }
 }
