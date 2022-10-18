@@ -9,7 +9,7 @@
         <!-- 导航菜单 -->
         <div class="menu">
           <div>
-            <el-menu style="background: rgb(225, 225, 225);" default-active="$route.path" mode="horizontal" text-color="#111" active-text-color="rgba(11, 109, 222, 1)" router="true">
+            <el-menu style="background: rgb(225, 225, 225);" default-active="$route.path" mode="horizontal" text-color="#111" active-text-color="rgba(11, 109, 222, 1)" :router="true">
             <el-submenu index="1">
               <template slot="title"><router-link to="/Image">图像攻防</router-link></template>
               <el-menu-item index="/ImageAttack">图像对抗攻击</el-menu-item>

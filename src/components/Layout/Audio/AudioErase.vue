@@ -1,3 +1,26 @@
 <template>
-    <h1>语音对抗样本擦除</h1>
+<circleMenu/>
 </template>
+
+<script>
+import circleMenu from '../../button/circleMenu.vue'
+export default {
+  components: {
+    circleMenu
+  }
+}
+</script>
+
+<style>
+.tmp{
+  text-align: center;
+  background-color: #fff;
+  border-radius: 20px;
+  width: 300px;
+  height: 350px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+</style>
