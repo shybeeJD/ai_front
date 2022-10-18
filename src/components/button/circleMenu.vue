@@ -1,8 +1,8 @@
 <template>
+<div style="transform:translate(105px, 0);">
   <yCircleMenu
     id="circleMenu"
-    style="position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); padding-right:140px;
-      padding-bottom:92px;"
+    style="padding-right:140px;padding-bottom:92px;"
     ref="menu"
     :columns='columns'
     :circleOr='circleOr'
@@ -13,8 +13,9 @@
     :delay='delay'
     :isClose='isClose == 0 ? false : true'
     :offset='offset'>
-    <div slot="button" class="mainCircle">选择方法</div>
+    <div slot="button" class="mainCircle">{{text}}</div>
   </yCircleMenu>
+</div>
 </template>
 
 <script>
@@ -25,65 +26,78 @@ export default {
   components: {
     yCircleMenu
   },
+
+  props: {
+    columns: {
+      type: Array,
+      default () {
+        return [{
+          render (h) {
+            return h('Button', {
+              props: {
+
+              },
+              class: 'salveCircle',
+              on: {
+                click: () => testOut1('1231234')
+              }
+            })
+          }
+        }, {
+          render (h) {
+            return h('Button', {
+              props: {
+
+              },
+              class: 'salveCircle',
+              on: {
+                click: () => testOut1('1231234')
+              }
+            })
+          }
+        }, {
+          render (h) {
+            return h('Button', {
+              props: {
+
+              },
+              class: 'salveCircle',
+              on: {
+                click: () => testOut1('1231234')
+              }
+            })
+          }
+        }, {
+          render (h) {
+            return h('Button', {
+              props: {
+
+              },
+              class: 'salveCircle',
+              on: {
+                click: () => testOut1('1231234')
+              }
+            })
+          }
+        }]
+      }
+    },
+    text: {
+      type: String,
+      default: ''
+    }
+  },
+
   data () {
     return {
-      isClose: false, // 自动收起
+      isClose: true, // 自动收起
       circleOr: 40, // 半径
       direc: 'top', // 排布区域
       itemO: 'o', // 原点位置
       completeCircle: '1.0', // 圆度
       duration: 0.5, // item执行时间
       delay: 0.01, // 每个item出现的延迟
-      offset: { x: 30, y: 30 }, // 生成圆的整体偏移
-      columns: [{
-        render (h) {
-          return h('Button', {
-            props: {
-
-            },
-            class: 'salveCircle',
-            on: {
-              click: () => testOut1('1231234')
-            }
-          })
-        }
-      }, {
-        render (h) {
-          return h('Button', {
-            props: {
-
-            },
-            class: 'salveCircle',
-            on: {
-              click: () => testOut1('1231234')
-            }
-          })
-        }
-      }, {
-        render (h) {
-          return h('Button', {
-            props: {
-
-            },
-            class: 'salveCircle',
-            on: {
-              click: () => testOut1('1231234')
-            }
-          })
-        }
-      }, {
-        render (h) {
-          return h('Button', {
-            props: {
-
-            },
-            class: 'salveCircle',
-            on: {
-              click: () => testOut1('1231234')
-            }
-          })
-        }
-      }]
+      offset: { x: 30, y: 30 } // 生成圆的整体偏移
     }
   },
   methods: {
