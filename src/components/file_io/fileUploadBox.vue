@@ -4,12 +4,13 @@
     id="fileUploadBox"
     class="upload-demo"
     drag
-    action="C:\\Users\\xiaoyue\\Documents\\lab_project"
+    action=""
     :show-file-list="false"
     :auto-upload="true"
     :before-upload='testBeforeUpload'
     :on-error="handleResult"
     :on-progress="handleProgress"
+    :http-request="upload"
     multiple>
     <div :style="{'visibility': fileState == 0 ? 'visible' : 'collapse'}">
       <i class="el-icon-upload"></i>
@@ -28,7 +29,8 @@ export default {
   data () {
     return {
       fileState: 0, // 0: waiting for upload; 1: uploading; 2: upload success;
-      percentage: 0
+      percentage: 0,
+      myFile: 0
     }
   },
   methods: {
@@ -42,6 +44,26 @@ export default {
     },
     testBeforeUpload (file) {
       console.log(file)
+      this.myFile = file
+    },
+    upload () {
+      var xmlhttp = new XMLHttpRequest()
+      var xmlhttpUrl = 'http://localhost:9999/upload'
+      xmlhttp.open('post', xmlhttpUrl, true)
+      // xmlhttp.setRequestHeader('Content-Type', 'multipart/form-data;')
+      xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) { // 成功
+          var list = JSON.parse(xmlhttp.responseText)
+          console.log(list)
+        } else {
+          console.log(xmlhttp.statusText)
+        }
+      }
+      const formData = new FormData()
+      formData.append('file', this.myFile)
+      formData.append('file_name', this.myFile.name)
+      formData.append('file_type', this.myFile.type)
+      xmlhttp.send(formData)
     }
   }
 }

@@ -96,7 +96,7 @@ export default {
       itemO: 'o', // 原点位置
       completeCircle: '1.0', // 圆度
       duration: 0.5, // item执行时间
-      delay: 0.01, // 每个item出现的延迟
+      delay: 0.1, // 每个item出现的延迟
       offset: { x: 30, y: 30 } // 生成圆的整体偏移
     }
   },
