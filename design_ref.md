@@ -8,3 +8,4 @@ select:
 
 一些学习笔记
 1. https://segmentfault.com/a/1190000021042790
+2. vue的监听机制：https://blog.csdn.net/jslong66/article/details/113379930

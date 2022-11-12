@@ -13,7 +13,9 @@
     :delay='delay'
     :isClose='isClose == 0 ? false : true'
     :offset='offset'>
-    <div slot="button" class="mainCircle">{{text}}</div>
+    <div slot="button" class="mainCircle" :id="menuButtonId"
+    v-bind:style="setMainCircleStyle()"
+    >{{text}}</div>
   </yCircleMenu>
 </div>
 </template>
@@ -79,22 +81,48 @@ export default {
               }
             })
           }
+        }, {
+          render (h) {
+            return h('Button', {
+              props: {
+
+              },
+              class: 'salveCircle',
+              on: {
+                click: () => testOut1('1231234')
+              }
+            })
+          }
         }]
       }
+    },
+    mainCircleRadio: {
+      type: String,
+      default: '100'
     },
     text: {
       type: String,
       default: ''
+    },
+    direc: { // 排布区域
+      type: String,
+      default: 'left'
+    },
+    completeCircle: { // 圆度
+      type: String,
+      default: '1.0'
+    },
+    menuButtonId: {
+      type: String,
+      default: ' '
     }
   },
 
   data () {
     return {
-      isClose: true, // 自动收起
-      circleOr: 40, // 半径
-      direc: 'top', // 排布区域
+      isClose: false, // 自动收起
+      circleOr: 0, // 半径
       itemO: 'o', // 原点位置
-      completeCircle: '1.0', // 圆度
       duration: 0.5, // item执行时间
       delay: 0.1, // 每个item出现的延迟
       offset: { x: 30, y: 30 } // 生成圆的整体偏移
@@ -146,20 +174,32 @@ export default {
       }]
       console.log(this.columns)
       this.$forceUpdate()
+    },
+    setMainCircleStyle () {
+      return {
+        'width': this.mainCircleRadio + 'px',
+        'height': this.mainCircleRadio + 'px',
+        'line-height': this.mainCircleRadio + 'px',
+        'border': Math.floor(parseInt(this.mainCircleRadio) / 6.5).toString() + 'px' + ' solid',
+        'border-color': 'rgb(128, 226, 250)',
+        'font-size': Math.floor(parseInt(this.mainCircleRadio) / 4).toString() + 'px'
+      }
     }
+  },
+  mounted () {
+    document.getElementById(this.menuButtonId).click()
   }
 }
 </script>
 
 <style>
 .salveCircle {
-  width: 20px;
-  height: 20px;
+  width: 100px;
+  height: 100px;
   background-color: #ffffff;
   border-radius: 50%;
   border: 10px solid;
   border-color: rgb(128, 226, 250);
-  padding: 20px;
 }
 
 .mainCircle {

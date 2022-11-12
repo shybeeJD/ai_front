@@ -12,20 +12,26 @@
     :on-progress="handleProgress"
     :http-request="upload"
     multiple>
-    <div :style="{'visibility': fileState == 0 ? 'visible' : 'collapse'}">
+    <!-- <div :style="{'visibility': fileState == 0 ? 'visible' : 'collapse'}">
       <i class="el-icon-upload"></i>
       <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
-    </div>
-    <el-progress class="center" type="circle"
+    </div> -->
+    <!-- <el-progress class="center" type="circle"
       :percentage="percentage"
       :style="{'visibility': fileState == 1 ? 'visible' : 'collapse'}" >
-    </el-progress>
+    </el-progress> -->
   </el-upload>
 </div>
 </template>
 
 <script>
 export default {
+  props: {
+    uploadCallBack: {
+      type: Function,
+      default: () => { console.log("Call Back dosen't init") }
+    }
+  },
   data () {
     return {
       fileState: 0, // 0: waiting for upload; 1: uploading; 2: upload success;
@@ -64,6 +70,10 @@ export default {
       formData.append('file_name', this.myFile.name)
       formData.append('file_type', this.myFile.type)
       xmlhttp.send(formData)
+      this.uploadCallBack('1', this.myFile)
+    },
+    getFile () {
+      return this.myFile
     }
   }
 }
@@ -75,5 +85,10 @@ export default {
   left: 50%;
   top: 50%;
   transform: translate(-50%,-50%);
+}
+.el-upload { /* vue库中的样式 */
+  position: relative;
+  left: 50%;
+  transform: translate(-50%,0%);
 }
 </style>
