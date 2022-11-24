@@ -2,12 +2,13 @@
 <div>
   <div class="swiper-container">
         <div class="swiper-wrapper">
-            <div class="swiper-slide" style="background-color:black;width:600px;height:300px"></div>
-            <div class="swiper-slide" style="background-color:green;width:600px;height:300px"></div>
-            <div class="swiper-slide" style="background-color:red;width:600px;height:300px"></div>
-            <div class="swiper-slide" style="background-color:orange;width:600px;height:300px"></div>
-            <div class="swiper-slide" style="background-color:pink;width:600px;height:300px"></div>
-            <div class="swiper-slide" style="background-color:blue;width:600px;height:300px"></div>
+            <model-card class="swiper-slide" style="width:600px;height:300px;"
+              v-bind="{modelName:'Model CV', discription:'discription\n  这个模型可以用来搞CV\n ......'}">
+            </model-card>
+            <model-card class="swiper-slide" style="width:600px;height:300px;"
+              v-bind="{modelName:'Model NLP', discription:'discription\n  这个模型可以用来搞NLP\n ......'}">
+            </model-card>
+            <model-card class="swiper-slide" style="width:600px;height:300px;"></model-card>
         </div>
         <!-- Add Pagination -->
         <div class="swiper-pagination"></div>
@@ -17,31 +18,38 @@
 
 <script>
 import Swiper from 'swiper'
+import modelCard from '@/components/card/modelCard.vue'
 export default {
-  name: '',
+  components: {
+    modelCard
+  },
   data () {
-    return {}
+    return {
+      myID: 0
+    }
   },
   mounted () {
     this.initSwiper()
+    console.log('ID is' + this.myID.toString())
+    this.myID += 1
   },
   methods: {
     initSwiper () {
+      console.log('HERE')
       Swiper('.swiper-container', {
-        loop: true,
-        // 分页器
-        pagination: '.swiper-pagination',
+        loop: false,
         effect: 'coverflow',
         grabCursor: true,
         centeredSlides: true,
         slidesPerView: 'auto',
         coverflow: {
-          rotate: 50,
+          rotate: 60,
           stretch: 0,
           depth: 100,
           modifier: 1,
           slideShadows: true
-        }
+        },
+        slideToClickedSlide: true
       })
     }
   }
@@ -49,7 +57,7 @@ export default {
 </script>
 
 <style scoped>
-@import "../../../node_modules/swiper/dist/css/swiper.css";
+/* @import "../../../node_modules/swiper/dist/css/swiper.css"; */
 /* .swiper-container {
   width: 100%;
   padding-top: 50px;

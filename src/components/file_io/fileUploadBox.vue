@@ -1,5 +1,4 @@
 <template>
-<div>
   <el-upload
     id="fileUploadBox"
     class="upload-demo"
@@ -12,16 +11,15 @@
     :on-progress="handleProgress"
     :http-request="upload"
     multiple>
-    <!-- <div :style="{'visibility': fileState == 0 ? 'visible' : 'collapse'}">
-      <i class="el-icon-upload"></i>
+    <div :style="{'visibility': fileState == 0 ? 'visible' : 'collapse'}">
+      <div class="el-icon-upload"></div>
       <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
-    </div> -->
+    </div>
     <!-- <el-progress class="center" type="circle"
       :percentage="percentage"
       :style="{'visibility': fileState == 1 ? 'visible' : 'collapse'}" >
     </el-progress> -->
   </el-upload>
-</div>
 </template>
 
 <script>
@@ -88,7 +86,7 @@ export default {
 }
 .el-upload { /* vue库中的样式 */
   position: relative;
-  left: 50%;
-  transform: translate(-50%,0%);
+  /* left: 50%;
+  transform: translate(-50%,0%); */
 }
 </style>

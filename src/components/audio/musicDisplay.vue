@@ -1,5 +1,5 @@
 <template>
-  <div style="height:40px;">
+  <div style="height:100px;width:355px;">
     <el-col style="width:15px;">
       <div :class="iconClass"
         @click="playAndPause"
@@ -18,15 +18,28 @@
       <el-slider v-model="musicCurrecntTime" :show-tooltip="false" @input="sliderChange"></el-slider>
     </el-col>
     <el-col style="width:100px;position:relative;line-height:40px;">
-      <button>语音识别</button>
+      <button @click="startSR">语音识别</button>
     </el-col>
+    <div>识别结果:</div>
+    <!-- https://www.npmjs.com/package/vue-typed-js -->
+    <vue-typed-js id="typedJS" v-if="isReloadData"
+      :strings="resultSR"
+      :shuffle="true"
+      :typeSpeed="20"
+      :fadeOutClass="'fadeOutClass'"
+      :startDelay="500"
+      :showCursor="false"
+      :contentType="'null'"
+    ><p class="typing"></p></vue-typed-js>
   </div>
 </template>
 
 <script>
 import {formatNumber2MinuteString} from '@/utils/timeTools'
+import { VueTypedJs } from 'vue-typed-js'
 export default {
   components: {
+    VueTypedJs
   },
   props: {
 
@@ -38,7 +51,9 @@ export default {
       currentTimeFormat: '0:00',
       totalTimeFormat: '0:00',
       musicSource: ' ', // require('@/assets/test.mp3'),
-      iconClass: 'el-icon-video-play'
+      iconClass: 'el-icon-video-play',
+      isReloadData: true,
+      resultSR: ['']
     }
   },
   methods: {
@@ -80,6 +95,16 @@ export default {
         let musicBox = this.$refs.music
         musicBox.pause()
       }
+    },
+    startSR () {
+      this.resultSR = ['语音识别是一个多学科交叉的领域，它与声学、语音学、语言学、数字信号处理理论、信息论、计算机科学等众多学科紧密相连。由于语音信号的多样性和复杂性，语音识别系统只能在一定的限制条件下获得满意的性能，或者说只能应用于某些特定的场合。语音识别系统的性能大致取决于以下4类因素：1. 识别词汇表的大小和语音的复杂性；2. 语音信号的质量；3. 单个说话人还是多说话人；4. 硬件。']
+      this.reload()
+    },
+    reload () {
+      this.isReloadData = false
+      this.$nextTick(() => {
+        this.isReloadData = true
+      })
     }
   },
   mounted () {
