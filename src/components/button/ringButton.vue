@@ -7,7 +7,7 @@ export default {
   props: {
     text: {
       type: String,
-      default: '选择方法'
+      default: '开始生成'
     }
   }
 }
@@ -17,10 +17,10 @@ export default {
 .ringButton {
   width: 65px;
   height: 65px;
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
   border-radius: 50%;
   border: 10px solid;
-  border-color: rgb(128, 226, 250);
+  border-color: rgba(134, 193, 255, 1);
   padding: 20px;
   line-height: 65px;
   text-align: center;
@@ -28,6 +28,6 @@ export default {
 }
 
 .ringButton:hover {
-  background: rgba(128, 226, 250, 0.2);
+  background: rgba(134, 193, 255, 0.2);
 }
 </style>

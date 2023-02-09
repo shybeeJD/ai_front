@@ -3,13 +3,19 @@
         <!-- 标题图案 -->
         <div class="box">
           <a id="logo">
-            <strong><router-link to="/MainCover"><span id="ai">AI</span>攻防系统</router-link></strong>
+            <strong><router-link to="/MainCover"><span id="ai"
+              style="font-size: 30px;
+                    font-weight: bolder;
+                    letter-spacing: 0px;
+                    line-height: 0px;
+                    color: rgba(11, 109, 222, 1);
+                    "
+            >AI攻防系统</span></router-link></strong>
           </a>
         </div>
         <!-- 导航菜单 -->
         <div class="menu">
-          <div>
-            <el-menu style="background: rgb(225, 225, 225);" default-active="$route.path" mode="horizontal" text-color="#111" active-text-color="rgba(11, 109, 222, 1)" :router="true">
+            <el-menu style="" default-active="$route.path" mode="horizontal" text-color="#111" active-text-color="rgba(11, 109, 222, 1)" :router="true">
             <el-submenu index="1">
               <template slot="title"><router-link to="/Image">图像攻防</router-link></template>
               <el-menu-item index="/ImageAttack">图像对抗攻击</el-menu-item>
@@ -34,7 +40,6 @@
             </el-submenu>
             </el-menu>
           </div>
-        </div>
     </div>
 </template>
 
@@ -47,8 +52,8 @@
   height: 66px;
   display: flex;
   box-shadow: 0px 2px 3px 4px rgba(0, 0, 0, 0.25);
-  background: rgb(225, 225, 225);
-  justify-content:space-between;
+  background: rgb(255, 255, 255);
+  /* justify-content:space-between; */
 }
 #logo {
   font-size: 35px;
@@ -61,15 +66,19 @@
   font-style: italic;
 }
 .box {
-  width: 190px;
+  width: 10%;
   height: 60px;
   line-height: 60px;
   left: 0px;
+  margin-left: 30px;
 }
 .menu {
   font-size: 30px;
   height: 55px;
-  background: rgb(225, 225, 225);
+  width: 360px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%,0%);
   /* flex-grow:1; */
   /* display: flex; */
   /* justify-content: center; */
@@ -78,11 +87,11 @@
   font-size: 20px;
 }
 a{
-text-decoration: none;
-color: #303133;
+  text-decoration: none;
+  color: #303133;
 }
 a:hover {
-    border-bottom: 2px solid #409EFF;
-    color:#409EFF;
+  border-bottom: 2px solid #409EFF;
+  color:#409EFF;
 }
 </style>

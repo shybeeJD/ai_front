@@ -1,26 +1,29 @@
 <template>
-  <div style="height:100px;width:355px;">
-    <el-col style="width:15px;">
-      <div :class="iconClass"
-        @click="playAndPause"
-        style="line-height:40px;"
-      ></div>
-    </el-col>
-    <el-col style="width:90px;">
-      <div style="align:center;text-align:center;line-height:40px;">
-        {{ currentTimeFormat }}/{{ totalTimeFormat }}
-      </div>
-    </el-col>
+  <div style="height:100px;width:233px;">
+    <div style="font-size:10px;margin-bottom:-15px;color:rgba(0,0,0,0.65);">name.wav</div>
+    <el-slider v-model="musicCurrecntTime" :show-tooltip="false" @input="sliderChange"></el-slider>
+    <div style="height:20px;width:100%;">
+      <el-col style="width:10px;height:100%;">
+        <div :class="iconClass"
+            @click="playAndPause"
+        ></div>
+      </el-col>
+      <el-col style="width:100px;height:100%;">
+        <div style="align:center;text-align:center;line-height:22px;width:100px;">
+          {{ currentTimeFormat }}/{{ totalTimeFormat }}
+        </div>
+      </el-col>
       <audio ref="music">
         <source :src="musicSource"/>
       </audio>
-    <el-col style="width:150px;">
-      <el-slider v-model="musicCurrecntTime" :show-tooltip="false" @input="sliderChange"></el-slider>
-    </el-col>
-    <el-col style="width:100px;position:relative;line-height:40px;">
-      <button @click="startSR">语音识别</button>
-    </el-col>
-    <div>识别结果:</div>
+      <el-col style="height:100%;width:100px;float:right;">
+        <div class="recognition-button" style="float:right;" @click="startSR">语音识别</div>
+      </el-col>
+      <!-- TODO 这里如果利用float是不是可以考虑不使用el-col进行布局? -->
+    </div>
+
+    <!-- TODO 可以将打印的文字放在一个框里，边框设计一下就行 -->
+    <div style="width:70px;">识别结果:</div>
     <!-- https://www.npmjs.com/package/vue-typed-js -->
     <vue-typed-js id="typedJS" v-if="isReloadData"
       :strings="resultSR"
@@ -86,6 +89,9 @@ export default {
       }
     },
     playAndPause () {
+      if (this.totalTime <= 0) {
+        return
+      }
       if (this.iconClass === 'el-icon-video-play') {
         this.iconClass = 'el-icon-video-pause'
         let musicBox = this.$refs.music
@@ -133,5 +139,23 @@ export default {
   height: 5px;
   border-radius: 5px;
   background:  rgb(0, 179, 255);
+}
+
+.music-play{
+  width: 20px;
+  height: 100%;
+  background-size: 100% 100%;
+  background-image: url("../button/yellowbox.png");
+}
+
+.recognition-button{
+  height: 20px;
+  width: 50px;
+  background: rgba(0, 122, 255, 1);
+  color: rgba(255, 255, 255, 1);
+  border-radius: 4px;
+  font-size: 1px;
+  text-align: center;
+  line-height: 20px;
 }
 </style>

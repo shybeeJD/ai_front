@@ -2,13 +2,13 @@
 <div>
   <div class="swiper-container">
         <div class="swiper-wrapper">
-            <model-card class="swiper-slide" style="width:600px;height:300px;"
+            <model-card class="swiper-slide" style="width:300px;height:150px;"
               v-bind="{modelName:'Model CV', discription:'discription\n  这个模型可以用来搞CV\n ......'}">
             </model-card>
-            <model-card class="swiper-slide" style="width:600px;height:300px;"
+            <model-card class="swiper-slide" style="width:300px;height:150px;"
               v-bind="{modelName:'Model NLP', discription:'discription\n  这个模型可以用来搞NLP\n ......'}">
             </model-card>
-            <model-card class="swiper-slide" style="width:600px;height:300px;"></model-card>
+            <model-card class="swiper-slide" style="width:300px;height:150px;"></model-card>
         </div>
         <!-- Add Pagination -->
         <div class="swiper-pagination"></div>

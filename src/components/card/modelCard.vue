@@ -25,7 +25,7 @@ export default {
 .box {
   background-color: #ffffff;
   border-radius: 10%;
-  border: 5px solid;
+  border: 1px solid;
   border-color: rgb(128, 226, 250);
 }
 
@@ -50,7 +50,7 @@ export default {
   line-height: 250%;
   text-align: center;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 10px;
 }
 
 .description {
@@ -62,6 +62,6 @@ export default {
   transform: translateY(-50%);
   white-space: pre;
   font-family: 仿宋;
-  font-size: 30px;
+  font-size: 10px;
 }
 </style>

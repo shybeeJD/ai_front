@@ -8,7 +8,7 @@
       </el-header>
 
       <!-- 主体容器 -->
-      <el-main>
+      <el-main style="height:1080px;">
         <router-view></router-view>
       </el-main>
 

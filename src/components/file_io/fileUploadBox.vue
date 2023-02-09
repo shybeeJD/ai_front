@@ -12,8 +12,9 @@
     :http-request="upload"
     multiple>
     <div :style="{'visibility': fileState == 0 ? 'visible' : 'collapse'}">
-      <div class="el-icon-upload"></div>
-      <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
+      <div class="el-icon-upload" style="background:black;"></div>
+      <div class="el-upload__text" style="padding-top:10px;">点击或将文件拖拽到这里上传</div>
+      <div style="color:rgba(0,0,0,0.45);font-size:10px;">支持扩展名：.wav,……</div>
     </div>
     <!-- <el-progress class="center" type="circle"
       :percentage="percentage"
@@ -77,16 +78,19 @@ export default {
 }
 </script>
 
-<style>
-.center{
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
+<style lang="less" scoped>
+/deep/.el-upload{
+  width: 100%;
 }
-.el-upload { /* vue库中的样式 */
-  position: relative;
-  /* left: 50%;
-  transform: translate(-50%,0%); */
+/deep/.el-upload .el-upload-dragger{
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: rgba(229, 229, 229, 0.46);
+  opacity: 1;
+}
+/deep/ .el-upload__text{
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.85);
 }
 </style>
